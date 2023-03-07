@@ -6,7 +6,7 @@ df_origin = pd.read_csv('data/Bundesliga.csv')
 
 with st.sidebar:
     Club = st.multiselect('Club', sorted(df_origin['Club'].unique()))
-    Season = st.multiselect('Season', sorted(df_origin['Season'].unique()))
+    Season = st.checkbox('Season')
     City = st.checkbox('Location')
 
 def filter_data(df, City, Season):
@@ -14,8 +14,8 @@ def filter_data(df, City, Season):
 
     if len(City) > 0:
         df_copy = df_copy[df_copy['Location'].isin(city)]
-    if len(Season) > 0:
-        df_copy = df_copy[df_copy['Season'].isin(club)]
+    if Season == True:
+        df_copy = df_copy[df_copy['Season']!= '-']
 
     if City == True:
         df_copy = df_copy[df_copy['Location'] != '-']
