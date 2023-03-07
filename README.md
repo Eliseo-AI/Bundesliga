@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 pandas == 1.2.4
 streamlit==1.19.0
-plotly==4.14.3
+plotly==5.0.0
 plotly_express==0.4.0
 ```
 To run the streamlit code
