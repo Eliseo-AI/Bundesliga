@@ -23,7 +23,7 @@ plotly==5.0.0
 ```
 To run the streamlit code
 ```
-streamlit run bundesliga.py
+streamlit run Pj-Bundesliga.py
 ```
 ## Licensing
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
