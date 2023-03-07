@@ -5,24 +5,24 @@ import plotly.express as px
 df_origin = pd.read_csv('data/Bundesliga.csv')
 
 with st.sidebar:
-    club = st.multiselect('Club', sorted(df_origin['Club'].unique()))
-    season = st.multiselect('Season', sorted(df_origin['Season'].unique()))
-    city = st.checkbox('Location')
+    Club = st.multiselect('Club', sorted(df_origin['Club'].unique()))
+    Season = st.multiselect('Season', sorted(df_origin['Season'].unique()))
+    City = st.checkbox('Location')
 
 def filter_data(df, club, city):
     df_copy = df.copy()
 
-    if len(city) > 0:
+    if len(City) > 0:
         df_copy = df_copy[df_copy['Location'].isin(city)]
-    if len(club) > 0:
-        df_copy = df_copy[df_copy['Club'].isin(club)]
+    if len(Season) > 0:
+        df_copy = df_copy[df_copy['Season'].isin(club)]
 
-    if city == True:
+    if City == True:
         df_copy = df_copy[df_copy['Location'] != '-']
     
     return df_copy
 
-df_ = filter_data(df_origin, season, club, city)
+df_ = filter_data(df_origin, Season, Club, City)
 st.title("Bundesliga")
 st.subheader("Analysis")
 
