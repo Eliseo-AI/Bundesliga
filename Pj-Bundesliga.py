@@ -9,7 +9,7 @@ with st.sidebar:
     Season = st.multiselect('Season', sorted(df_origin['Season'].unique()))
     City = st.checkbox('Location')
 
-def filter_data(df, club, city):
+def filter_data(df, City, Season):
     df_copy = df.copy()
 
     if len(City) > 0:
@@ -22,7 +22,7 @@ def filter_data(df, club, city):
     
     return df_copy
 
-df_ = filter_data(df_origin, Season, Club, City)
+df_ = filter_data(Season, Club, City)
 st.title("Bundesliga")
 st.subheader("Analysis")
 
