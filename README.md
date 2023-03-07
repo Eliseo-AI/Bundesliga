@@ -17,10 +17,9 @@ pip install -r requirements.txt
 ```
 - Requirements includes:
 ```
-pandas == 1.2.4
+pandas == 1.5.3
 streamlit==1.19.0
 plotly==5.0.0
-plotly_express==0.4.0
 ```
 To run the streamlit code
 ```
