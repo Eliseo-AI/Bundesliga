@@ -12,8 +12,8 @@ with st.sidebar:
 def filter_data(df, City, Season):
     df_copy = df.copy()
 
-    if len(City) > 0:
-        df_copy = df_copy[df_copy['Location'].isin(City)]
+    if len(Club) > 0:
+        df_copy = df_copy[df_copy['Location'].isin(Club)]
     if len(Season) > 0:
         df_copy = df_copy[df_copy['Season'].isin(Season)]
 
