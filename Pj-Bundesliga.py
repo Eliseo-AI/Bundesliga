@@ -10,7 +10,6 @@ selected_values = st.sidebar.multiselect("Select values", unique_values)
 
 filtered_df = df_bundes[(df_bundes["Club"].isin(selected_values)) | (df_bundes["Season"].isin(selected_values))]
 
-df_ = filter_data(Season, Club, City)
 st.title("Bundesliga")
 st.subheader("Analysis")
 
