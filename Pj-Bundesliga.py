@@ -19,13 +19,13 @@ Average_Goals = df_bundes["GF"].mean()
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Club", f"{total_clubs:,.0f}")
-col2.metric("Pts", f"{Average_Points:,.2f}")
+col2.metric("Points", f"{Average_Points:,.2f}")
 col3.metric("GF", f"{Average_Goals:,.2f}")
 
 
 
 def get_team_statistics(df_bundes):
-    radar_columns = ['W','D','L','GF','GC','Pts']
+    radar_columns = ['Win','Draw','Loss','GF','GC','Points']
     metrics = []
     for metric in radar_columns:
         metrics.append(df_bundes[metric].mean())
