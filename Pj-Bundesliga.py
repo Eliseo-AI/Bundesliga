@@ -13,10 +13,11 @@ filtered_df = df_bundes[(df_bundes["Club"].isin(selected_values)) | (df_bundes["
 st.set_page_config(layout="wide")
 st.title("Bundesliga")
 st.markdown(
-'''A collaborative'''
+'''A collaborative''')
+    
 st.subheader("Analysis")
 st.markdown(
-'''A collaborative'''
+'''A collaborative''')
 
 total_clubs = len(df_bundes)
 Average_Points = df_bundes["Points"].mean()
