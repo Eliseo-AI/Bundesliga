@@ -30,7 +30,7 @@ def get_team_games(df_bundes):
     
     return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
 
-radar_fig_1 = px.line_polar(get_team_games(df_bundes), r='metrics', theta='theta', line_close=True)
+radar_fig_1 = px.line_polar(get_team_games(df_bundes), r='metrics', theta='theta', line_close=True, title="My Chart Title1")
 
 def get_team_statistics(df_bundes):
     radar_columns = ['GF','GC','Points']
@@ -40,7 +40,7 @@ def get_team_statistics(df_bundes):
     
     return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
 
-radar_fig_2 = px.line_polar(get_team_statistics(df_bundes), r='metrics', theta='theta', line_close=True)
+radar_fig_2 = px.line_polar(get_team_statistics(df_bundes), r='metrics', theta='theta', line_close=True, title="My Chart Title2")
 
 radar_fig_1.update_layout(
   polar=dict(
