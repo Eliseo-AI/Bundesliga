@@ -14,7 +14,7 @@ st.title("Bundesliga")
 st.subheader("Analysis")
 
 total_clubs = len(df_bundes)
-Average_Points = df_bundes["Pts"].mean()
+Average_Points = df_bundes["Points"].mean()
 Average_Goals = df_bundes["GF"].mean()
 
 col1, col2, col3 = st.columns(3)
