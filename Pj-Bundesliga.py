@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+st.set_page_config(layout="wide")
 df_bundes = pd.read_csv('data/Bundesliga.csv')
 
 unique_values = sorted(set(df_bundes["Club"].unique()) | set(df_bundes["Season"].unique()))
@@ -10,7 +11,6 @@ selected_values = st.sidebar.multiselect("Select values", unique_values)
 
 filtered_df = df_bundes[(df_bundes["Club"].isin(selected_values)) | (df_bundes["Season"].isin(selected_values))]
 
-st.set_page_config(layout="wide")
 st.title("Bundesliga")
 st.markdown(
 '''A collaborative''')
