@@ -61,8 +61,8 @@ radar_fig_2.update_layout(
 )
 col1, col2 = st.columns(2)
 with col1:
-    st.plotly_chart(radar_fig_1)
+    st.plotly_chart(radar_fig_1, use_container_width=True)
 with col2:
-    st.plotly_chart(radar_fig_2)
+    st.plotly_chart(radar_fig_2, use_container_width=True)
 
 st.dataframe(df_bundes)
