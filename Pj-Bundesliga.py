@@ -41,7 +41,7 @@ def get_team_games(df_bundes):
     
     return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
 
-radar_fig_1 = px.line_polar(get_team_games(df_bundes), r='metrics', theta='theta', line_close=True, title="Average Wins, Losess & Draws")
+radar_fig_1 = px.line_polar(get_team_games(df_bundes), r='metrics', theta='theta', line_close=True, title="Average Wins, Losess & Draws", template= '%s' %(dt_choice_template)
 
 def get_team_statistics(df_bundes):
     radar_columns = ['GF','GC','Points']
@@ -51,7 +51,7 @@ def get_team_statistics(df_bundes):
     
     return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
 
-radar_fig_2 = px.line_polar(get_team_statistics(df_bundes), r='metrics', theta='theta', line_close=True, title="Average Point, Goals For and against")
+radar_fig_2 = px.line_polar(get_team_statistics(df_bundes), r='metrics', theta='theta', line_close=True, title="Average Point, Goals For and against", template= '%s' %(dt_choice_template)
 
 radar_fig_1.update_layout(
   polar=dict(
@@ -76,7 +76,7 @@ with col1:
 with col2:
     st.plotly_chart(radar_fig_2, use_container_width=True)
 
-st.dataframe(df_bundes)
+st.dataframe(df_bundes, template= '%s' %(dt_choice_template)
 
 dt_choice_template =st.sidebar.selectbox("Choose Template", ['plotly','ggplot2', 'seaborn', 'simple_white',
          'plotly_white', 'plotly_dark', 'presentation', 'xgridoff',
