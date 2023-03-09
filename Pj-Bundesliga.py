@@ -22,19 +22,37 @@ col1.metric("Club", f"{total_clubs:,.0f}")
 col2.metric("Points", f"{Average_Points:,.2f}")
 col3.metric("GF", f"{Average_Goals:,.2f}")
 
-
-
-def get_team_statistics(df_bundes):
-    radar_columns = ['Win','Draw','Loss','GF','GC','Points']
+def get_team_games(df_bundes):
+    radar_columns = ['Win','Draw','Loss']
     metrics = []
     for metric in radar_columns:
         metrics.append(df_bundes[metric].mean())
     
     return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
 
-radar_fig = px.line_polar(get_team_statistics(df_bundes), r='metrics', theta='theta', line_close=True)
+radar_fig_1 = px.line_polar(get_team_games(df_bundes), r='metrics', theta='theta', line_close=True)
 
-radar_fig.update_layout(
+def get_team_statistics(df_bundes):
+    radar_columns = ['GF','GC','Points']
+    metrics = []
+    for metric in radar_columns:
+        metrics.append(df_bundes[metric].mean())
+    
+    return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
+
+radar_fig_2 = px.line_polar(get_team_statistics(df_bundes), r='metrics', theta='theta', line_close=True)
+
+radar_fig_1.update_layout(
+  polar=dict(
+    radialaxis=dict(
+      visible=True,
+      range=[0, 34]
+    )),
+  showlegend=False
+)
+st.plotly_chart(radar_fig_1)
+
+radar_fig_2.update_layout(
   polar=dict(
     radialaxis=dict(
       visible=True,
@@ -42,6 +60,6 @@ radar_fig.update_layout(
     )),
   showlegend=False
 )
-st.plotly_chart(radar_fig)
+st.plotly_chart(radar_fig_2)
 
 st.dataframe(df_bundes)
