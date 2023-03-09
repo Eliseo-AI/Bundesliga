@@ -77,3 +77,7 @@ with col2:
     st.plotly_chart(radar_fig_2, use_container_width=True)
 
 st.dataframe(df_bundes)
+
+dt_choice_template =st.sidebar.selectbox("Choose Template", ['plotly','ggplot2', 'seaborn', 'simple_white',
+         'plotly_white', 'plotly_dark', 'presentation', 'xgridoff',
+         'ygridoff', 'gridon', 'none'])
