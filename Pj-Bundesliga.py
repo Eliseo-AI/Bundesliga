@@ -16,9 +16,15 @@ st.markdown(
 '''A collaborative''')
     
 st.subheader("Analysis")
-st.markdown(
-'''A collaborative''')
-
+with st.beta_expander("Explanation & Tips"):
+     st.markdown(""" The Bundesliga Statistics. \n
+     1. Total Number of Clubs.
+     2. Average of Points(win= 3 points, Draw = 1 point, Loss = 0 Points).
+     3. Average Goals for.
+     4. Graph consolidate average of Wins, Losses and Draws. 
+     5. Graph consolidate average of Wins, Losses and Draws.
+     6. Choose view between normalized over 100k and non-normalized data. 
+     
 total_clubs = len(df_bundes)
 Average_Points = df_bundes["Points"].mean()
 Average_Goals = df_bundes["GF"].mean()
