@@ -14,8 +14,8 @@ st.title("Bundesliga")
 st.subheader("Analysis")
 
 total_clubs = len(df_bundes)
-Average_Points = df_bundes['Pts'].mean()
-Average_Goals = df_bundes['GF)'].mean()
+Average_Points = df_bundes["Pts"].mean()
+Average_Goals = df_bundes["GF"].mean()
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Club", f"{total_clubs:,.0f}")
