@@ -10,8 +10,13 @@ selected_values = st.sidebar.multiselect("Select values", unique_values)
 
 filtered_df = df_bundes[(df_bundes["Club"].isin(selected_values)) | (df_bundes["Season"].isin(selected_values))]
 
+st.set_page_config(layout="wide")
 st.title("Bundesliga")
+st.markdown(
+'''A collaborative'''
 st.subheader("Analysis")
+st.markdown(
+'''A collaborative'''
 
 total_clubs = len(df_bundes)
 Average_Points = df_bundes["Points"].mean()
