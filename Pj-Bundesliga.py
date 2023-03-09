@@ -53,7 +53,7 @@ radar_fig_1.update_layout(
 )
 
 radar_fig_2.update_layout(
-  polar=dict((bgcolor='lightgray'),
+  polar=dict(
     radialaxis=dict(
       visible=True,
       range=[0, 60]
