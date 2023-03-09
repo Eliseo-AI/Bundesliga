@@ -11,6 +11,10 @@ selected_values = st.sidebar.multiselect("Select values", unique_values)
 
 filtered_df = df_bundes[(df_bundes["Club"].isin(selected_values)) | (df_bundes["Season"].isin(selected_values))]
 
+dt_choice_template =st.sidebar.selectbox("Choose Template", ['plotly','ggplot2', 'seaborn', 'simple_white',
+         'plotly_white', 'plotly_dark', 'presentation', 'xgridoff',
+         'ygridoff', 'gridon', 'none'])
+
 st.title("Bundesliga")
 st.markdown(
 '''A collaborative''')
@@ -77,7 +81,3 @@ with col2:
     st.plotly_chart(radar_fig_2, use_container_width=True)
 
 st.dataframe(df_bundes, template= '%s' %(dt_choice_template)
-
-dt_choice_template =st.sidebar.selectbox("Choose Template", ['plotly','ggplot2', 'seaborn', 'simple_white',
-         'plotly_white', 'plotly_dark', 'presentation', 'xgridoff',
-         'ygridoff', 'gridon', 'none'])
