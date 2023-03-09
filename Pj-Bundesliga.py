@@ -13,9 +13,9 @@ filtered_df = df_bundes[(df_bundes["Club"].isin(selected_values)) | (df_bundes["
 st.title("Bundesliga")
 st.subheader("Analysis")
 
-total_clubs = len(df_)
-Average_Points = df_['Pts'].mean()
-Average_Goals = df_['GF)'].mean()
+total_clubs = len(df_bundes)
+Average_Points = df_bundes['Pts'].mean()
+Average_Goals = df_bundes['GF)'].mean()
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Club", f"{total_clubs:,.0f}")
@@ -24,7 +24,7 @@ col3.metric("GF", f"{Average_Goals:,.2f}")
 
 
 
-def get_team_statistics(df):
+def get_team_statistics(df_bundes):
     radar_columns = ['W','D','L','GF','GC','Pts']
     metrics = []
     for metric in radar_columns:
