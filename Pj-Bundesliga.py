@@ -14,7 +14,7 @@ def filter_data(df, City, Season):
 
     if len(City) > 0:
         df_copy = df_copy[df_copy['Location'].isin(City)]
-    if Season == True:
+    if len(Season) > 0:
         df_copy = df_copy[df_copy['Season'].isin(Season)]
 
     if City == True:
