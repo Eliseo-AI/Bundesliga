@@ -30,7 +30,7 @@ def get_team_games(df_bundes):
     
     return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
 
-radar_fig_1 = px.line_polar(get_team_games(df_bundes), r='metrics', theta='theta', line_close=True, title="My Chart Title1")
+radar_fig_1 = px.line_polar(get_team_games(df_bundes), r='metrics', theta='theta', line_close=True, title="Average Wins, Losess & Draws")
 
 def get_team_statistics(df_bundes):
     radar_columns = ['GF','GC','Points']
@@ -40,7 +40,7 @@ def get_team_statistics(df_bundes):
     
     return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
 
-radar_fig_2 = px.line_polar(get_team_statistics(df_bundes), r='metrics', theta='theta', line_close=True, title="My Chart Title2")
+radar_fig_2 = px.line_polar(get_team_statistics(df_bundes), r='metrics', theta='theta', line_close=True, title="Average Point, Goals For and against")
 
 radar_fig_1.update_layout(
   polar=dict(
@@ -50,7 +50,6 @@ radar_fig_1.update_layout(
     )),
   showlegend=False
 )
-st.plotly_chart(radar_fig_1)
 
 radar_fig_2.update_layout(
   polar=dict(
@@ -60,6 +59,9 @@ radar_fig_2.update_layout(
     )),
   showlegend=False
 )
-st.plotly_chart(radar_fig_2)
-
+col1, col2 = st.columns(2)
+with col1:
+    st.plotly_chart(radar_fig_1)
+with col2:
+    st.plotly_chart(radar_fig_2)
 st.dataframe(df_bundes)
