@@ -15,6 +15,7 @@ dt_choice_template =st.sidebar.selectbox("Choose Template", ['plotly','ggplot2',
          'plotly_white', 'plotly_dark', 'presentation', 'xgridoff',
          'ygridoff', 'gridon', 'none'])
 
+
 st.title("Bundesliga")
 st.markdown(
 '''A collaborative''')
@@ -79,5 +80,3 @@ with col1:
     st.plotly_chart(radar_fig_1, use_container_width=True)
 with col2:
     st.plotly_chart(radar_fig_2, use_container_width=True)
-
-st.dataframe(df_bundes, template= '%s' %(dt_choice_template)
