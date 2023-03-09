@@ -24,7 +24,7 @@ with st.beta_expander("Explanation & Tips"):
      4. Graph consolidate average of Wins, Losses and Draws. 
      5. Graph consolidate average of Wins, Losses and Draws.
      6. Choose view between normalized over 100k and non-normalized data. 
-     
+     ''')
 total_clubs = len(df_bundes)
 Average_Points = df_bundes["Points"].mean()
 Average_Goals = df_bundes["GF"].mean()
