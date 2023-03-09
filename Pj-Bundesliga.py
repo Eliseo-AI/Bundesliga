@@ -31,6 +31,7 @@ def get_team_games(df_bundes):
     return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
 
 radar_fig_1 = px.line_polar(get_team_games(df_bundes), r='metrics', theta='theta', line_close=True, title="Average Wins, Losess & Draws")
+radar_fig_1.update_traces(marker=dict(color='red', line=dict(color='red', width=2)))
 
 def get_team_statistics(df_bundes):
     radar_columns = ['GF','GC','Points']
@@ -52,7 +53,7 @@ radar_fig_1.update_layout(
 )
 
 radar_fig_2.update_layout(
-  polar=dict(
+  polar=dict((bgcolor='lightgray'),
     radialaxis=dict(
       visible=True,
       range=[0, 60]
