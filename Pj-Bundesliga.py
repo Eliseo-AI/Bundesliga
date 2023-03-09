@@ -28,11 +28,11 @@ def get_team_statistics(df_bundes):
     radar_columns = ['W','D','L','GF','GC','Pts']
     metrics = []
     for metric in radar_columns:
-        metrics.append(df_[metric].mean())
+        metrics.append(df_bundes[metric].mean())
     
     return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
 
-radar_fig = px.line_polar(get_team_statistics(df_), r='metrics', theta='theta', line_close=True)
+radar_fig = px.line_polar(get_team_statistics(df_bundes), r='metrics', theta='theta', line_close=True)
 
 radar_fig.update_layout(
   polar=dict(
@@ -44,4 +44,4 @@ radar_fig.update_layout(
 )
 st.plotly_chart(radar_fig)
 
-st.dataframe(df_)
+st.dataframe(df_bundes)
