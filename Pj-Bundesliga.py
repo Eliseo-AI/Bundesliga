@@ -2,25 +2,13 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-df_origin = pd.read_csv('data/Bundesliga.csv')
+df_bundes = pd.read_csv('data/Bundesliga.csv')
 
-with st.sidebar:
-    Club = st.multiselect('Club', sorted(df_origin['Club'].unique()))
-    Season = st.multiselect('Season', sorted(df_origin['Season'].unique()))
-    City = st.checkbox('Location')
+unique_values = sorted(set(df_bundes["Club"].unique()) | set(df_bundes["Season"].unique()))
 
-def filter_data(df, City, Season):
-    df_copy = df.copy()
+selected_values = st.sidebar.multiselect("Select values", unique_values)
 
-    if len(Club) > 0:
-        df_copy = df_copy[df_copy['Club'].isin(Club)]
-    if len(Season) > 0:
-        df_copy = df_copy[df_copy['Season'].isin(Season)]
-
-    if City == True:
-        df_copy = df_copy[df_copy['Location'] != '-']
-    
-    return df_copy
+filtered_df = df_bundes[(df_bundes["Club"].isin(selected_values)) | (df_bundes["Season"].isin(selected_values))]
 
 df_ = filter_data(Season, Club, City)
 st.title("Bundesliga")
