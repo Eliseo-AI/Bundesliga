@@ -47,11 +47,11 @@ theta=["Points", "Goals For", "Goals Against"],
 fill="toself",
 name="Season Average"))
 for club in clubs:
-club_stats_2 = df[(df["club"]==club) & (df["season"]==season)][["Pts", "GF", "GC"]]
-fig.add_trace(go.Scatterpolar(r=[club_stats_2.Pts, club_stats_2.GF, club_stats_2.GC],
-theta=["Points", "Goals For", "Goals Against"],
-fill="toself",
-name=club))
+        club_stats_2 = df[(df["club"]==club) & (df["season"]==season)][["Pts", "GF", "GC"]]
+        fig.add_trace(go.Scatterpolar(r=[club_stats_2.Pts, club_stats_2.GF, club_stats_2.GC],
+        theta=["Points", "Goals For", "Goals Against"],
+        fill="toself",
+        name=club))
 fig.update_layout(polar=dict(radialaxis=dict(visible=True)),
 showlegend=True,
 template=theme)
