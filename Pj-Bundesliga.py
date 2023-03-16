@@ -20,9 +20,9 @@ season = st.sidebar.selectbox("Choose a season", df["Season"].unique())
 club = st.sidebar.selectbox("Choose a club", df["Club"].unique())
 
 st.header("Season Comparison")
-season_df = df[df["Season"]==season]
+season_df = df[df["Season"]==Season]
 season_avg = season_df[["W", "D", "L"]].mean()
-club_stats = df[(df["Club"]==club) & (df["Season"]==season)][["W", "D", "L"]]
+club_stats = df[(df["Club"]==club) & (df["Season"]==Season)][["W", "D", "L"]]
 fig = go.Figure()
 fig.add_trace(go.Scatterpolar(r=[season_avg.W, season_avg.D, season_avg.L],
 theta=["Wins", "Draws", "Losses"],
@@ -38,16 +38,16 @@ template=theme)
 st.plotly_chart(fig)
 
 st.header("Points, Goals For and Against Comparison")
-season_df = df[df["Season"]==season]
+season_df = df[df["Season"]==Season]
 season_avg = season_df[["Pts", "GF", "GC"]].mean()
-club_stats = df[(df["Club"].isin(clubs)) & (df["Season"]==season)][["Pts", "GF", "GC"]]
+club_stats = df[(df["Club"].isin(clubs)) & (df["Season"]==Season)][["Pts", "GF", "GC"]]
 fig = go.Figure()
 fig.add_trace(go.Scatterpolar(r=[season_avg.Pts, season_avg.GF, season_avg.GC],
 theta=["Points", "Goals For", "Goals Against"],
 fill="toself",
 name="Season Average"))
 for club in clubs:
-        club_stats_2 = df[(df["Club"]==club) & (df["Season"]==season)][["Pts", "GF", "GC"]]
+        club_stats_2 = df[(df["Club"]==club) & (df["Season"]==Season)][["Pts", "GF", "GC"]]
         fig.add_trace(go.Scatterpolar(r=[club_stats_2.Pts, club_stats_2.GF, club_stats_2.GC],
         theta=["Points", "Goals For", "Goals Against"],
         fill="toself",
