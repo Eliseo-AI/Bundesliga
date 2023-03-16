@@ -21,10 +21,10 @@ club = st.sidebar.selectbox("Choose a club", df.query("Season == @season")["Club
 
 st.header("Season Comparison")
 season_df = df[df["Season"]==season]
-season_avg = season_df[["W", "D", "L"]].mean()
-club_stats = df[(df["Club"]==club) & (df["Season"]==season)][["W", "D", "L"]]
+season_avg = season_df[["Win", "Draw", "Loss"]].mean()
+club_stats = df[(df["Club"]==club) & (df["Season"]==season)][["Win", "Draw", "Loss"]]
 fig = go.Figure()
-fig.add_trace(go.Scatterpolar(r=[season_avg.W, season_avg.D, season_avg.L],
+fig.add_trace(go.Scatterpolar(r=[season_avg.Win, season_avg.Draw, season_avg.Loss],
 theta=["Wins", "Draws", "Losses"],
 fill="toself",
 name="Season Average"))
