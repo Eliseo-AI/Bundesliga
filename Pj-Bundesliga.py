@@ -1,82 +1,58 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
+import numpy as np
+import folium
+from streamlit_folium import folium_static
 
-st.set_page_config(layout="wide")
-df_bundes = pd.read_csv('data/Bundesliga.csv')
+st.set_page_config(page_title="Bundesliga Analysis", page_icon=":soccer:", layout="wide")
+df = pd.read_csv('data/Bundesliga.csv')
 
-unique_values = sorted(set(df_bundes["Club"].unique()) | set(df_bundes["Season"].unique()))
+st.title("Bundesliga Data Analysis")
 
-selected_values = st.sidebar.multiselect("Select values", unique_values)
+st.sidebar.header("Theme Selection")
+theme = st.sidebar.selectbox("Choose a theme", ["plotly_white", "plotly_dark",
+"ggplot2", "seaborn"])
 
-filtered_df = df_bundes[(df_bundes["Club"].isin(selected_values)) | (df_bundes["Season"].isin(selected_values))]
+st.sidebar.header("Filters")
+season = st.sidebar.selectbox("Choose a season", df["season"].unique())
+club = st.sidebar.selectbox("Choose a club", df["club"].unique())
 
-dt_choice_template =st.sidebar.selectbox("Choose Template", ['plotly','ggplot2', 'seaborn', 'simple_white',
-         'plotly_white', 'plotly_dark', 'presentation', 'xgridoff',
-         'ygridoff', 'gridon', 'none'])
+st.header("Season Comparison")
+season_df = df[df["season"]==season]
+season_avg = season_df[["W", "D", "L"]].mean()
+club_stats = df[(df["club"]==club) & (df["season"]==season)][["W", "D", "L"]]
+fig = go.Figure()
+fig.add_trace(go.Scatterpolar(r=[season_avg.W, season_avg.D, season_avg.L],
+theta=["Wins", "Draws", "Losses"],
+fill="toself",
+name="Season Average"))
+fig.add_trace(go.Scatterpolar(r=[club_stats.W, club_stats.D, club_stats.L],
+theta=["Wins", "Draws", "Losses"],
+fill="toself",
+name=club))
+fig.update_layout(polar=dict(radialaxis=dict(visible=True)),
+showlegend=True,
+template=theme)
+st.plotly_chart(fig)
 
-
-st.title("Bundesliga")
-st.markdown(
-'''A collaborative''')
-    
-st.subheader("Analysis")
-with st.beta_expander("Explanation & Tips"):
-     st.markdown(""" The Bundesliga Statistics. \n
-     1. Total Number of Clubs.
-     2. Average of Points(win= 3 points, Draw = 1 point, Loss = 0 Points).
-     3. Average Goals for.
-     4. Graph consolidate average of Wins, Losses and Draws. 
-     5. Graph consolidate average of Wins, Losses and Draws.
-     6. Choose view between normalized over 100k and non-normalized data.""")
-total_clubs = len(df_bundes)
-Average_Points = df_bundes["Points"].mean()
-Average_Goals = df_bundes["GF"].mean()
-
-col1, col2, col3 = st.columns(3)
-col1.metric("Club", f"{total_clubs:,.0f}")
-col2.metric("Points", f"{Average_Points:,.2f}")
-col3.metric("GF", f"{Average_Goals:,.2f}")
-
-def get_team_games(df_bundes):
-    radar_columns = ['Win','Draw','Loss']
-    metrics = []
-    for metric in radar_columns:
-        metrics.append(df_bundes[metric].mean())
-    
-    return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
-
-radar_fig_1 = px.line_polar(get_team_games(df_bundes), r='metrics', theta='theta', line_close=True, title="Average Wins, Losess & Draws", template= '%s' %(dt_choice_template))
-
-def get_team_statistics(df_bundes):
-    radar_columns = ['GF','GC','Points']
-    metrics = []
-    for metric in radar_columns:
-        metrics.append(df_bundes[metric].mean())
-    
-    return pd.DataFrame(dict(metrics=metrics, theta=radar_columns))
-
-radar_fig_2 = px.line_polar(get_team_statistics(df_bundes), r='metrics', theta='theta', line_close=True, title="Average Point, Goals For and against", template= '%s' %(dt_choice_template))
-
-radar_fig_1.update_layout(
-  polar=dict(
-    radialaxis=dict(
-      visible=True,
-      range=[0, 25]
-    )),
-  showlegend=False
-)
-
-radar_fig_2.update_layout(
-  polar=dict(
-    radialaxis=dict(
-      visible=True,
-      range=[0, 60]
-    )),
-  showlegend=False
-)
-col1, col2 = st.columns(2)
-with col1:
-    st.plotly_chart(radar_fig_1, use_container_width=True)
-with col2:
-    st.plotly_chart(radar_fig_2, use_container_width=True)
+st.header("Points, Goals For and Against Comparison")
+season_df = df[df["season"]==season]
+season_avg = season_df[["Pts", "GF", "GC"]].mean()
+club_stats = df[(df["club"].isin(clubs)) & (df["season"]==season)][["Pts", "GF", "GC"]]
+fig = go.Figure()
+fig.add_trace(go.Scatterpolar(r=[season_avg.Pts, season_avg.GF, season_avg.GC],
+theta=["Points", "Goals For", "Goals Against"],
+fill="toself",
+name="Season Average"))
+for club in clubs:
+club_stats = df[(df["club"]==club) & (df["season"]==season)][["Pts", "GF", "GC"]]
+fig.add_trace(go.Scatterpolar(r=[club_stats.Pts, club_stats.GF, club_stats.GC],
+theta=["Points", "Goals For", "Goals Against"],
+fill="toself",
+name=club))
+fig.update_layout(polar=dict(radialaxis=dict(visible=True)),
+showlegend=True,
+template=theme)
+st.plotly_chart(fig)
