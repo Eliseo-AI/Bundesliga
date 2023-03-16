@@ -16,7 +16,7 @@ theme = st.sidebar.selectbox("Choose a theme", ["plotly_white", "plotly_dark",
 "ggplot2", "seaborn"])
 
 st.sidebar.header("Filters")
-season = st.sidebar.selectbox("Choose a season", df["Season"].unique())
+Season = st.sidebar.selectbox("Choose a season", df["Season"].unique())
 club = st.sidebar.selectbox("Choose a club", df["Club"].unique())
 
 st.header("Season Comparison")
