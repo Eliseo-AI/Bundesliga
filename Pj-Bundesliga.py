@@ -28,7 +28,7 @@ fig.add_trace(go.Scatterpolar(r=[season_avg.Win, season_avg.Draw, season_avg.Los
 theta=["Wins", "Draws", "Losses"],
 fill="toself",
 name="Season Average"))
-fig.add_trace(go.Scatterpolar(r=[club_stats.W, club_stats.D, club_stats.L],
+fig.add_trace(go.Scatterpolar(r=[club_stats.Win, club_stats.Draw, club_stats.Loss],
 theta=["Wins", "Draws", "Losses"],
 fill="toself",
 name=club))
@@ -39,16 +39,16 @@ st.plotly_chart(fig)
 
 st.header("Points, Goals For and Against Comparison")
 season_df = df[df["Season"]==season]
-season_avg = season_df[["Pts", "GF", "GC"]].mean()
-club_stats = df[(df["Club"].isin(clubs)) & (df["Season"]==season)][["Pts", "GF", "GC"]]
+season_avg = season_df[["Points", "GF", "GC"]].mean()
+club_stats = df[(df["Club"].isin(clubs)) & (df["Season"]==season)][["Points", "GF", "GC"]]
 fig = go.Figure()
 fig.add_trace(go.Scatterpolar(r=[season_avg.Pts, season_avg.GF, season_avg.GC],
 theta=["Points", "Goals For", "Goals Against"],
 fill="toself",
 name="Season Average"))
 for club in clubs:
-        club_stats_2 = df[(df["Club"]==club) & (df["Season"]==Season)][["Pts", "GF", "GC"]]
-        fig.add_trace(go.Scatterpolar(r=[club_stats_2.Pts, club_stats_2.GF, club_stats_2.GC],
+        club_stats_2 = df[(df["Club"]==club) & (df["Season"]==Season)][["Points", "GF", "GC"]]
+        fig.add_trace(go.Scatterpolar(r=[club_stats_2.Points, club_stats_2.GF, club_stats_2.GC],
         theta=["Points", "Goals For", "Goals Against"],
         fill="toself",
         name=club))
