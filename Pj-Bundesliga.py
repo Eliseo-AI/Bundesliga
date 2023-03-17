@@ -23,36 +23,34 @@ st.header("Season Comparison")
 season_df = df[df["Season"]==season]
 season_avg = season_df[["Win", "Draw", "Loss"]].mean()
 club_stats = df[(df["Club"]==club) & (df["Season"]==season)][["Win", "Draw", "Loss"]]
-fig = go.Figure()
-fig.add_trace(go.Scatterpolar(r=[season_avg.Win, season_avg.Draw, season_avg.Loss],
+fig1 = go.Figure()
+fig1.add_trace(go.Scatterpolar(r=[season_avg.Win, season_avg.Draw, season_avg.Loss],
 theta=["Wins", "Draws", "Losses"],
 fill="toself",
 name="Season Average"))
-fig.add_trace(go.Scatterpolar(r=[club_stats.Win, club_stats.Draw, club_stats.Loss],
+fig1.add_trace(go.Scatterpolar(r=[club_stats.Win, club_stats.Draw, club_stats.Loss],
 theta=["Wins", "Draws", "Losses"],
 fill="toself",
 name=club))
-fig.update_layout(polar=dict(radialaxis=dict(visible=True)),
+fig1.update_layout(polar=dict(radialaxis=dict(visible=True)),
 showlegend=True,
 template=theme)
-st.plotly_chart(fig)
+st.plotly_chart(fig1)
 
 st.header("Points, Goals For and Against Comparison")
 season_df = df[df["Season"]==season]
 season_avg = season_df[["Points", "GF", "GC"]].mean()
 club_stats = df[(df["Club"]==club) & (df["Season"]==season)][["Points", "GF", "GC"]]
-fig = go.Figure()
-fig.add_trace(go.Scatterpolar(r=[season_avg.Points, season_avg.GF, season_avg.GC],
+fig2 = go.Figure()
+fig2.add_trace(go.Scatterpolar(r=[season_avg.Points, season_avg.GF, season_avg.GC],
 theta=["Points", "Goals For", "Goals Against"],
 fill="toself",
 name="Season Average"))
-for club in clubs:
-        club_stats_2 = df[(df["Club"]==club) & (df["Season"]==Season)][["Points", "GF", "GC"]]
-        fig.add_trace(go.Scatterpolar(r=[club_stats_2.Points, club_stats_2.GF, club_stats_2.GC],
-        theta=["Points", "Goals For", "Goals Against"],
-        fill="toself",
-        name=club))
-fig.update_layout(polar=dict(radialaxis=dict(visible=True)),
+fig2.add_trace(go.Scatterpolar(r=[club_stats_2.Points, club_stats_2.GF, club_stats_2.GC],
+theta=["Points", "Goals For", "Goals Against"],
+fill="toself",
+name=club))
+fig2.update_layout(polar=dict(radialaxis=dict(visible=True)),
 showlegend=True,
 template=theme)
-st.plotly_chart(fig)
+st.plotly_chart(fig2)
