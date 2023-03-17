@@ -42,7 +42,7 @@ season_df = df[df["Season"]==season]
 season_avg = season_df[["Points", "GF", "GC"]].mean()
 club_stats = df[(df["Club"]==club) & (df["Season"]==season)][["Points", "GF", "GC"]]
 fig = go.Figure()
-fig.add_trace(go.Scatterpolar(r=[season_avg.Pts, season_avg.GF, season_avg.GC],
+fig.add_trace(go.Scatterpolar(r=[season_avg.Points, season_avg.GF, season_avg.GC],
 theta=["Points", "Goals For", "Goals Against"],
 fill="toself",
 name="Season Average"))
