@@ -17,7 +17,7 @@ theme = st.sidebar.selectbox("Choose a theme", ["plotly_white", "plotly_dark",
 
 st.sidebar.header("Filters")
 season = st.sidebar.selectbox("Choose a season", df["Season"].unique())
-club = st.sidebar.multiselect("Choose club(s)", df.query("Season == @season")["Club"].unique(),default=season[:2])
+club = st.sidebar.selectbox("Choose club(s)", df.query("Season == @season")["Club"].unique())
 
 st.header("Season Comparison")
 season_df = df[df["Season"]==season]
