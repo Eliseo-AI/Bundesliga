@@ -4,3 +4,6 @@ plotly==5.0.0
 numpy==1.23.1
 folium==0.14.0
 streamlit_folium==0.11.1 
+matplotlib==3.4.2
+ipywidgets==7.6.5
+Ipython==8.0.0
