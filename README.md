@@ -15,32 +15,32 @@ A work of building an interactive dashboard to provide insights about Bundesliga
 
 ## Datasets
 The Bundesliga-2023.csv file has 15 columns and 433 rows, with the following information per column:
-Club: Name of Club.(German Language)
-Season: Period of season.
-Position: Season ending position.
-Win: Victories achieved during the season.
-Draw: Draws achieved during the season.
-Loss: Losses achieved during the season.
-GF: Goals for scored during the season.
-GC: Goals against conceded during the season.
-GD: Goals difference during the season.
-Points: Ponts earned during the season.
-Q or R: Qualification for international cup or team relegation zone.
-State: State of the German federal republic to which the club belongs.(German Language)
-Pokal: Champion and runner-up of the German Cup.
-Location: Municipality in which the club's stadium is located.
-Stadium: Name of the stadium where the club plays.
+- Club: Name of Club.(German Language)
+- Season: Period of season.
+- Position: Season ending position.
+- Win: Victories achieved during the season.
+- Draw: Draws achieved during the season.
+- Loss: Losses achieved during the season.
+- GF: Goals for scored during the season.
+- GC: Goals against conceded during the season.
+- GD: Goals difference during the season.
+- Points: Ponts earned during the season.
+- Q or R: Qualification for international cup or team relegation zone.
+- State: State of the German federal republic to which the club belongs.(German Language)
+- Pokal: Champion and runner-up of the German Cup.
+- Location: Municipality in which the club's stadium is located.
+- Stadium: Name of the stadium where the club plays.
 
 The Bundesliga-2023.csv file has 20 columns and 487 rows, with the following information per column:
-city: city 
-lat: latitude
-lng: longitude 
-country: country 
-iso2: State of the German federal republic to which the city belongs.
-admin_name: Name of the city 
-capital = city type category ("primary" = country capital, "admin" = regional capital, "minor"= metropolitan city, "" = city) 
-population= population of the city. 
-population_ptroper: population of the city.
+- city: city 
+- lat: latitude
+- lng: longitude 
+- country: country 
+- iso2: State of the German federal republic to which the city belongs.
+- admin_name: Name of the city 
+- capital = city type category ("primary" = country capital, "admin" = regional capital, "minor"= metropolitan city, "" = city) 
+- population= population of the city. 
+- population_ptroper: population of the city.
 
 ## Installation Requirements
 - Download Zip
