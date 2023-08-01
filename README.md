@@ -8,7 +8,7 @@ Table of Content
    * [Author](#Author)
     
 # Bundesliga
-It is a project to analyze the basic statistics of the Bundesliga, there is information on the participating teams from the 1999-2000 season to 2022-2023, for which there are two files: Bundesliga-2023.csv and DE-2023.csv [Bundesliga](https://www.bundesliga.com/en/bundesliga)
+It is a project to analyze the basic statistics of the Bundesliga, there is information on the participating teams from the 1999-2000 season to 2022-2023, for which there are two files: Bundesliga-2023.csv and DE-2023.csv See[Bundesliga](https://www.bundesliga.com/en/bundesliga)
 
 ## Description 
 A work of building an interactive dashboard to provide insights about Bundesliga Results by master of digital science from the [Digital Sciences Track of Université Paris Cité](https://u-paris.fr/en/master-aire-digital-sciences/). 
