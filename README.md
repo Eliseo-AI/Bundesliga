@@ -1,7 +1,7 @@
 Table of Content
 =====================
 *  [Bundesliga](#Bundesliga)
-  * [Description](#Description-of-the-files)
+  * [Description](#Description)
   * [Datasets](#Datasets)
   * [Results](#Results)
   * [Installation requirements](#Installation-requirements)
@@ -9,9 +9,12 @@ Table of Content
   * [Author](#Author)
     
 # Bundesliga
-It is a project to analyze the basic statistics of the Bundesliga, there is information on the participating teams from the 1999-2000 season to 2022-2023, for which there are two files: Bundesliga-2023.csv and DE-2023.csv
+It is a project to analyze the basic statistics of the Bundesliga, there is information on the participating teams from the 1999-2000 season to 2022-2023, for which there are two files: Bundesliga-2023.csv and DE-2023.csv (https://www.bundesliga.com/en/bundesliga)
 
-## Description of the Files used
+## Description 
+
+
+## Datasets
 The Bundesliga-2023.csv file has 15 columns and 433 rows, with the following information per column:
 Club: Name of Club.
 Season: Period of season.
@@ -30,8 +33,6 @@ Location: Municipality in which the club's stadium is located.
 Stadium: Name of the stadium where the club plays.
 
 The Bundesliga-2023.csv file has 20 columns and 487 rows, with the following information per column:
-
-## Datasets
 
 ## Results
 
