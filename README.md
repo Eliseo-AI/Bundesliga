@@ -1,11 +1,11 @@
 Table of Content
 =====================
 *  [Bundesliga](#Bundesliga)
-  *[Description](#Description of the files)
+  *[Description](#Description-of-the-files)
   *[Datasets](#Datasets)
   *[Results](#Results)
-  *[Installation requirements](#Installation requirements)
-  *[Licencing](#Licencing)
+  *[Installation requirements](#Installation-requirements)
+  *[Licensing](#Licensing)
   *[Author](#Author)   
 # Bundesliga
 It is a project to analyze the basic statistics of the Bundesliga, there is information on the participating teams from the 1999-2000 season to 2022-2023, for which there are two files: Bundesliga-2023.csv and DE-2023.csv
