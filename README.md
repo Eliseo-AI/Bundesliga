@@ -38,9 +38,9 @@ The Bundesliga-2023.csv file has 20 columns and 487 rows, with the following inf
 - country: country 
 - iso2: State of the German federal republic to which the city belongs.
 - admin_name: Name of the city 
-- capital = city type category ("primary" = country capital, "admin" = regional capital, "minor"= metropolitan city, "" = city) 
-- population= population of the city. 
-- population_ptroper: population of the city.
+- capital: city type category ("primary" = country capital, "admin" = regional capital, "minor"= metropolitan city, "" = city) 
+- population: population of the city. 
+- population_proper: population of the city.
 
 ## Installation Requirements
 - Download Zip
