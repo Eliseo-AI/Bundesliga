@@ -8,13 +8,13 @@ Table of Content
    * [Author](#Author)
     
 # Bundesliga
-It is a project to analyze the basic statistics of the Bundesliga, there is information on the participating teams from the 1999-2000 season to 2022-2023, for which there are two files: Bundesliga-2023.csv and DE-2023.csv See [Bundesliga](https://www.bundesliga.com/en/bundesliga)
+It is a project to analyze the basic statistics of the Bundesliga, there is information on the participating teams from the 1999-2000 season to 2022-2023, for which there are two files: Bundesliga.csv and de.csv See [Bundesliga](https://www.bundesliga.com/en/bundesliga)
 
 ## Description 
 A work of building an interactive dashboard to provide insights about Bundesliga Results by Master in Digital Sciences from the [Digital Sciences Track of Université Paris Cité](https://u-paris.fr/en/master-aire-digital-sciences/). 
 
 ## Datasets
-The Bundesliga-2023.csv file has 15 columns and 433 rows, with the following information per column:
+The Bundesliga.csv file has 15 columns and 433 rows, with the following information per column:
 - Club: Name of Club.(German Language)
 - Season: Period of season.
 - Position: Season ending position.
@@ -31,7 +31,7 @@ The Bundesliga-2023.csv file has 15 columns and 433 rows, with the following inf
 - Location: Municipality in which the club's stadium is located.
 - Stadium: Name of the stadium where the club plays.
 
-The Bundesliga-2023.csv file has 20 columns and 487 rows, with the following information per column:
+The de.csv file has 9 columns and 487 rows, with the following information per column:
 - city: city 
 - lat: latitude
 - lng: longitude 
@@ -70,4 +70,4 @@ streamlit run Pj-Bundesliga.py
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Author:
-* **Eliseo Baquero** [@Eli-2020](https://github.com/Eli-2020)
+* **Eliseo Baquero** [@Eliseo-AI](https://github.com/Eliseo-AI)
